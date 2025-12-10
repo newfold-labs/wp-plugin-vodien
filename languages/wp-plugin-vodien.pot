@@ -32,8 +32,8 @@ msgstr ""
 
 #. Author of the plugin
 #: wp-plugin-vodien.php
-#: inc/Admin.php:119
-#: inc/Admin.php:120
+#: inc/Admin.php:99
+#: inc/Admin.php:100
 msgid "Vodien"
 msgstr ""
 
@@ -49,7 +49,7 @@ msgstr ""
 msgid "A New WordPress Site"
 msgstr ""
 
-#. translators: %1$s is replaced with opening link tag taking you to vodien.com/wordpress, %2$s is replaced with closing link tag, %3$s is replaced with opening link tag taking you to login page, %4$s is replaced with closing link tag, %5$s is replaced with opening link tag taking you to my.vodien.com, %6$s is replaced with closing link tag
+#. translators: %1$s is replaced with opening link tag taking you to vodien.com/wordpress-hosting, %2$s is replaced with closing link tag, %3$s is replaced with opening link tag taking you to login page, %4$s is replaced with closing link tag, %5$s is replaced with opening link tag taking you to my.vodien.com, %6$s is replaced with closing link tag
 #: bootstrap.php:66
 #, php-format
 msgid "A %1$sVodien%2$s powered website. Is this your website? Log in to %3$sWordPress%4$s or %5$sVodien%6$s."
@@ -76,48 +76,41 @@ msgid "Preview the coming soon landing page"
 msgstr ""
 
 #: inc/Admin.php:60
-#: inc/Admin.php:216
+#: inc/Admin.php:204
 #: build/1.0.0/index.js:1
 msgid "Home"
 msgstr ""
 
-#: inc/Admin.php:63
+#: inc/Admin.php:61
 #: build/1.0.0/index.js:1
 msgid "Marketplace"
 msgstr ""
 
-#. translators: %1$s is the opening <a> tag, %2$s is the closing </a> tag.
-#: inc/Admin.php:68
-#: build/1.0.0/index.js:1
-#: build/1.0.0/index.js:12
-msgid "Performance"
-msgstr ""
-
-#: inc/Admin.php:72
-#: inc/Admin.php:217
+#: inc/Admin.php:62
+#: inc/Admin.php:205
 #: build/1.0.0/index.js:1
 msgid "Settings"
 msgstr ""
 
-#: inc/Admin.php:75
+#: inc/Admin.php:63
 #: build/1.0.0/index.js:1
 msgid "Help"
 msgstr ""
 
-#: inc/Admin.php:162
+#: inc/Admin.php:150
 msgid "Please update to a newer WordPress version."
 msgstr ""
 
-#: inc/Admin.php:163
+#: inc/Admin.php:151
 msgid "There are new WordPress components which this plugin requires in order to render the interface."
 msgstr ""
 
-#: inc/Admin.php:164
+#: inc/Admin.php:152
 msgid "Please update now"
 msgstr ""
 
 #. translators: %1$s is the WordPress URL, %2$s is the Vodien URL.
-#: inc/Admin.php:235
+#: inc/Admin.php:223
 #, php-format
 msgid "Thank you for creating with %1$s and %2$s"
 msgstr ""
@@ -171,7 +164,7 @@ msgid "The \"%s\" plugin has been deactivated."
 msgstr ""
 
 #: inc/RestApi/CachingController.php:65
-#: inc/RestApi/SettingsController.php:200
+#: inc/RestApi/SettingsController.php:205
 msgid "Sorry, you are not allowed to access this endpoint."
 msgstr ""
 
@@ -188,7 +181,7 @@ msgid "Auto-updates enabled"
 msgstr ""
 
 #: build/1.0.0/index.js:1
-msgid "Vodien WordPress Plugin"
+msgid "Web WordPress Plugin"
 msgstr ""
 
 #: build/1.0.0/index.js:1
@@ -212,11 +205,15 @@ msgid "Vodien Account"
 msgstr ""
 
 #: build/1.0.0/index.js:1
-msgid "There's nothing here!"
+msgid "Performance"
 msgstr ""
 
 #: build/1.0.0/index.js:1
 msgid "Admin"
+msgstr ""
+
+#: build/1.0.0/index.js:1
+msgid "There's nothing here!"
 msgstr ""
 
 #: build/1.0.0/index.js:1
@@ -232,7 +229,6 @@ msgid "This feature cannot currently be modified."
 msgstr ""
 
 #: build/1.0.0/index.js:1
-#: build/1.0.0/index.js:12
 msgid "Oops! Something went wrong. Please try again."
 msgstr ""
 
@@ -336,67 +332,62 @@ msgstr ""
 msgid "Add site services, themes or plugins from the marketplace."
 msgstr ""
 
-#: build/1.0.0/index.js:12
-msgid "This is where you can manage cache settings for your website."
-msgstr ""
-
-#: build/1.0.0/index.js:12
+#: build/1.0.0/index.js:1
 msgid "Site Status"
 msgstr ""
 
-#: build/1.0.0/index.js:12
+#: build/1.0.0/index.js:1
 msgid "Not Live"
 msgstr ""
 
-#: build/1.0.0/index.js:12
+#: build/1.0.0/index.js:1
 msgid "Live"
 msgstr ""
 
-#: build/1.0.0/index.js:12
+#: build/1.0.0/index.js:1
 msgid "Coming soon page"
 msgstr ""
 
-#: build/1.0.0/index.js:12
+#: build/1.0.0/index.js:1
 msgid "Your Coming Soon page lets you hide your site from visitors while you make the magic happen."
 msgstr ""
 
-#: build/1.0.0/index.js:12
+#: build/1.0.0/index.js:1
 msgid "Your website is currently displaying a \"Coming Soon\" page."
 msgstr ""
 
-#: build/1.0.0/index.js:12
+#: build/1.0.0/index.js:1
 msgid "Manage All Updates"
 msgstr ""
 
-#: build/1.0.0/index.js:12
+#: build/1.0.0/index.js:1
 msgid "WordPress Core"
 msgstr ""
 
-#: build/1.0.0/index.js:12
+#: build/1.0.0/index.js:1
 msgid "Plugins"
 msgstr ""
 
-#: build/1.0.0/index.js:12
+#: build/1.0.0/index.js:1
 msgid "Themes"
 msgstr ""
 
-#: build/1.0.0/index.js:12
+#: build/1.0.0/index.js:1
 msgid "Automatic Updates"
 msgstr ""
 
-#: build/1.0.0/index.js:12
+#: build/1.0.0/index.js:1
 msgid "Keeping automatic updates on ensures timely security fixes and the latest features."
 msgstr ""
 
-#: build/1.0.0/index.js:12
+#: build/1.0.0/index.js:1
 msgid " day."
 msgid_plural " days."
 msgstr[0] ""
 msgstr[1] ""
 
-#: build/1.0.0/index.js:12
+#: build/1.0.0/index.js:1
 msgid " comment at a time."
 msgid_plural " comments at a time."
 msgstr[0] ""
 msgstr[1] ""
-
