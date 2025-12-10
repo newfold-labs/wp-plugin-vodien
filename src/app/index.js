@@ -1,0 +1,112 @@
+import 'App/stylesheet.scss';
+import 'App/tailwind.pcss';
+
+import { useEffect } from 'react';
+import { useLocation, HashRouter as Router } from 'react-router-dom';
+import { ErrorBoundary } from 'react-error-boundary';
+import { kebabCase, filter } from 'lodash';
+import { Root } from "@newfold/ui-component-library";
+import { NewfoldRuntime } from '@newfold/wp-module-runtime';
+import { SnackbarList, Spinner } from '@wordpress/components';
+import { useDispatch, useSelect } from '@wordpress/data';
+import { store as noticesStore } from '@wordpress/notices';
+import AppRoutes from 'App/data/routes';
+import AppStore, { AppStoreProvider } from 'App/data/store';
+import ErrorCard from 'App/components/errorCard';
+import { setActiveSubnav } from 'App/util/helpers';
+import { useHandlePageLoad } from 'App/util/hooks';
+import { AppNav } from 'App/components/app-nav';
+import { SiteInfoBar } from 'App/components/site-info';
+import { NotificationFeed } from 'App/components/notifications';
+
+// component sourced from module
+import { default as NewfoldNotifications } from '../../vendor/newfold-labs/wp-module-notifications/assets/js/components/notifications/';
+// to pass to notifications module
+import apiFetch from '@wordpress/api-fetch';
+import { useState } from '@wordpress/element';
+import { addQueryArgs } from '@wordpress/url';
+
+const Notices = () => {
+	const notices = useSelect(
+		( select ) =>
+			select( noticesStore )
+				.getNotices()
+				.filter( ( notice ) => notice.type === 'snackbar' ),
+		[]
+	);
+	const { removeNotice } = useDispatch( noticesStore );
+	return (
+		<SnackbarList
+			className="edit-site-notices"
+			notices={ notices }
+			onRemove={ removeNotice }
+		/>
+	);
+};
+
+const AppBody = ( props ) => {
+	const location = useLocation();
+	const hashedPath = '#' + location.pathname;
+	const { booted, hasError } = useContext( AppStore );
+
+	useHandlePageLoad();
+
+	return (
+		<main
+			id="wppv-app-rendered"
+			className={ classNames(
+				'wpadmin-brand-web',
+				`wppv-wp-${ NewfoldRuntime.wpVersion }`,
+				`wppv-page-${ kebabCase( location.pathname ) }`,
+				props.className,
+				'nfd-w-full nfd-p-4 min-[783px]:nfd-p-0'
+			) }
+		>
+
+			<NewfoldNotifications
+				constants={{
+					context: 'vodien-plugin',
+					page: hashedPath,
+				}}
+				methods={{
+					apiFetch,
+					addQueryArgs,
+					filter,
+					useState,
+					useEffect
+				}}
+			/>
+			<div className="wppv-app-body">
+				<div className="wppv-app-body-inner">
+					<ErrorBoundary FallbackComponent={ <ErrorCard /> }>
+						{ hasError && <ErrorCard error={ hasError } /> }
+						<SiteInfoBar />
+						{ ( true === booted && <AppRoutes /> ) ||
+							( ! hasError && <Spinner /> ) }
+					</ErrorBoundary>
+				</div>
+			</div>
+
+			<div className="wppv-app-snackbar">
+				{ 'undefined' !== typeof noticesStore && <Notices /> }
+			</div>
+		</main>
+	);
+};
+
+export const App = () => (
+	<AppStoreProvider>
+		<Root context={{ isRtl: false }}>
+			<NotificationFeed>
+				<Router>
+					<div className="wppv-app-container nfd-flex nfd-flex-col">
+						<AppNav />
+						<AppBody />
+					</div>
+				</Router>
+			</NotificationFeed>
+		</Root>
+	</AppStoreProvider>
+);
+
+export default App;
