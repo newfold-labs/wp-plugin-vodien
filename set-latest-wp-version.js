@@ -1,5 +1,4 @@
 const fs = require('fs')
-const fetch = require('node-fetch')
 const wpEnv = require('./.wp-env.json')
 
 fetch('https://api.wordpress.org/core/stable-check/1.0/')
