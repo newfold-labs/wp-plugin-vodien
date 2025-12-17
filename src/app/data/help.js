@@ -9,7 +9,7 @@ const help = [
 		icon: false,
 		cta: __( 'Live Chat', 'wp-plugin-vodien' ),
 		url:
-			'https://www.vodien.com/chat#/help?utm_campaign=&utm_content=help_chat_link&utm_term=live_chat&utm_medium=brand_plugin&utm_source=wp-admin/admin.php?page=vodien#/help',
+			'https://www.vodien.com/contact/#allday?utm_campaign=&utm_content=help_chat_link&utm_term=live_chat&utm_medium=brand_plugin&utm_source=wp-admin/admin.php?page=vodien#/help',
 	},
 	{
 		name: 'phone',
@@ -20,7 +20,7 @@ const help = [
 		),
 		icon: false,
 		cta: __( 'Call Us', 'wp-plugin-vodien' ),
-		url: 'https://www.vodien.com/contact',
+		url: 'tel: +65 6018 3544',
 	},
 	{
 		name: 'twitter',
