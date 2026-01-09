@@ -1,4 +1,4 @@
-# Copyright (C) 2025 Vodien
+# Copyright (C) 2026 Vodien
 # This file is distributed under the GPL 2.0 or later.
 msgid ""
 msgstr ""
@@ -180,6 +180,51 @@ msgstr ""
 msgid "Auto-updates enabled"
 msgstr ""
 
+#: inc/widgets/SitePreview.php:34
+#: inc/widgets/views/site-preview.php:113
+#: inc/widgets/views/site-preview.php:118
+msgid "Site Preview"
+msgstr ""
+
+#: inc/widgets/views/site-preview.php:148
+#: build/1.0.0/index.js:1
+msgid "Not Live"
+msgstr ""
+
+#: inc/widgets/views/site-preview.php:149
+#: build/1.0.0/index.js:1
+msgid "Live"
+msgstr ""
+
+#: inc/widgets/views/site-preview.php:162
+#: build/1.0.0/index.js:1
+msgid "Your website is currently displaying a \"Coming Soon\" page."
+msgstr ""
+
+#: inc/widgets/views/site-preview.php:163
+msgid "Your website is live to the world!"
+msgstr ""
+
+#: inc/widgets/views/site-preview.php:178
+msgid "Preview Site"
+msgstr ""
+
+#: inc/widgets/views/site-preview.php:179
+msgid "View Site"
+msgstr ""
+
+#: inc/widgets/views/site-preview.php:189
+msgid "Edit Site"
+msgstr ""
+
+#: inc/widgets/views/site-preview.php:199
+msgid "Launch Site"
+msgstr ""
+
+#: inc/widgets/views/site-preview.php:209
+msgid "Enable Coming Soon"
+msgstr ""
+
 #: build/1.0.0/index.js:1
 msgid "Web WordPress Plugin"
 msgstr ""
@@ -337,23 +382,11 @@ msgid "Site Status"
 msgstr ""
 
 #: build/1.0.0/index.js:1
-msgid "Not Live"
-msgstr ""
-
-#: build/1.0.0/index.js:1
-msgid "Live"
-msgstr ""
-
-#: build/1.0.0/index.js:1
 msgid "Coming soon page"
 msgstr ""
 
 #: build/1.0.0/index.js:1
 msgid "Your Coming Soon page lets you hide your site from visitors while you make the magic happen."
-msgstr ""
-
-#: build/1.0.0/index.js:1
-msgid "Your website is currently displaying a \"Coming Soon\" page."
 msgstr ""
 
 #: build/1.0.0/index.js:1
