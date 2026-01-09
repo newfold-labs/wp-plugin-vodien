@@ -7,7 +7,7 @@
 
 namespace Vodien\Widgets;
 
-use Web\Widgets\SitePreview;
+use Vodien\Widgets\SitePreview;
 
 require_once VODIEN_PLUGIN_DIR . '/inc/widgets/SitePreview.php';
 
