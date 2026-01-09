@@ -16,6 +16,12 @@ if (typeof window !== 'undefined') {
 			const menuMap = {
 				'/home': 'vodien#/home',
 				'/marketplace': 'vodien#/marketplace',
+				'marketplace/services': 'vodien#/marketplace',
+				'marketplace/featured': 'vodien#/marketplace',
+				'marketplace/ecommerce': 'vodien#/marketplace',
+				'marketplace/seo': 'vodien#/marketplace',
+				'marketplace/themes': 'vodien#/marketplace',
+				'marketplace/all': 'vodien#/marketplace',
 				'/settings': 'vodien#/settings',
 				'/settings/performance': 'vodien#/settings',
 				'/help': 'vodien#/help'
