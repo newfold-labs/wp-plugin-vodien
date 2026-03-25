@@ -1,14 +1,23 @@
+// WordPress dependencies
 import { useEffect, useState } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 import { useViewportMatch } from '@wordpress/compose';
+import { __ } from '@wordpress/i18n';
 import { addQueryArgs } from '@wordpress/url';
+
+// Third-party dependencies
 import { filter } from 'lodash';
-import { Modal, SidebarNavigation } from "@newfold/ui-component-library"
 import { NavLink, useLocation } from 'react-router-dom';
-import { Bars3Icon } from "@heroicons/react/24/outline";
-import { topRoutes, utilityRoutes } from "../../data/routes";
-import Logo from "./logo";
+import { Bars3Icon } from '@heroicons/react/24/outline';
+import { Modal, SidebarNavigation, Button } from '@newfold/ui-component-library';
+import { NewfoldRuntime } from '@newfold/wp-module-runtime';
 import { default as NewfoldNotifications } from '@modules/wp-module-notifications/assets/js/components/notifications/';
+
+// Internal dependencies
+import { topRoutes, utilityRoutes } from '../../data/routes';
+import { WordPressIcon } from '../icons';
+import { ReactComponent as VodienIconWhite } from '../../../../assets/svg/vodien-icon-white.svg';
+import Logo from './logo';
 
 export const SideNavHeader = () => {
 	return (
@@ -213,9 +222,11 @@ export const MobileNav = () => {
 export const TopBarNav = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const isLargeViewport = useViewportMatch('medium');
-	let location = useLocation();
+	const location = useLocation();
 	const hashedPath = '#' + location.pathname;
-	
+	const { url } = NewfoldRuntime.siteDetails;
+	const isEcommerce = NewfoldRuntime.hasCapability('isEcommerce');
+	const isStore = window.location.href?.includes('store');
 	// Close mobile nav when location changes
 	useEffect(() => {
 		setIsOpen(false);
@@ -231,7 +242,7 @@ export const TopBarNav = () => {
 					
 					{/* Desktop Navigation - Horizontal Menu */}
 					{isLargeViewport && (
-						<nav className="nfd-hidden min-[783px]:nfd-flex nfd-items-center nfd-gap-1">
+						<nav className="min-[783px]:nfd-flex nfd-items-center nfd-gap-1">
 							{topRoutes.map(
 								(page) => (
 									true === page.condition && (
@@ -246,7 +257,6 @@ export const TopBarNav = () => {
 										</NavLink>
 									)
 							))}
-							<div className="nfd-h-6 nfd-w-px nfd-bg-[#D8DEE4] nfd-mx-2"></div>
 							{utilityRoutes.map((page) => (
 								<NavLink
 									key={page.name}
@@ -261,6 +271,33 @@ export const TopBarNav = () => {
 						</nav>
 					)}
 				</div>
+
+				{/* Action Buttons */}
+				{isLargeViewport && (
+					<div className="nfd-flex nfd-items-center nfd-gap-3">
+						 <Button 
+							as="a"
+							id="site_info_portal_button"
+							href= { window.NewfoldRuntime.linkTracker.addUtmParams( 'https://www.vodien.com/login/' ) }
+							target="_blank"
+							variant="primary" 
+							className="nfd-bg-[#DC2626] nfd-text-white nfd-text-tiny nfd-w-full min-[400px]:nfd-w-auto hover:nfd-bg-[#991B1B]">
+							<VodienIconWhite />
+							{ __("Vodien Account", "wp-plugin-vodien") }
+						</Button>
+						<Button 
+							as="a" 
+							id="site_info_site_button"
+							href={(isEcommerce && isStore) ? window.NewfoldRuntime.linkTracker.addUtmParams(`${url}/shop`) : window.NewfoldRuntime.linkTracker.addUtmParams( url )}
+							target="_blank" 
+							variant="secondary" 
+							className="nfd-bg-white nfd-text-slate-900 nfd-text-tiny nfd-w-full min-[400px]:nfd-w-auto nfd-border-slate-300 hover:nfd-bg-slate-50"
+						>
+							<WordPressIcon />
+						{ (isEcommerce && isStore) ? __("View Store", "wp-plugin-vodien") : __("View Site", "wp-plugin-vodien") }
+						</Button>
+					</div>
+				)}
 
 				{/* Mobile Menu Button */}
 				{!isLargeViewport && (
