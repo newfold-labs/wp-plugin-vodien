@@ -36,6 +36,7 @@ jobs:
           mkdir dist
           echo "DIST=${PWD}/dist" >> $GITHUB_OUTPUT
           echo "PACKAGE=${REPO##*/}" >> $GITHUB_OUTPUT
+
       - name: Use Node.js 20.x
         uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
         with:
@@ -82,18 +83,21 @@ jobs:
         run: find .
 
       - name: Fetch WordPress beta version
+        id: fetch_beta
         run: |
-          wp_beta_zip=$(node -e "
-            const fetch = require('node-fetch');
-            fetch('https://api.wordpress.org/core/version-check/1.7/?channel=beta')
-              .then(response => response.json())
-              .then(data => data.offers[0].download);
-          ")
-          echo $wp_beta_zip
+          WP_BETA_URL=$(curl -s 'https://api.wordpress.org/core/version-check/1.7/?channel=beta' | jq -r '.offers[0].download')
+          echo "download_url=$WP_BETA_URL" >> "$GITHUB_OUTPUT"
 
       - name: Configure WordPress
+        env:
+          DIST: ${{ steps.workflow.outputs.DIST }}
+          PACKAGE: ${{ steps.workflow.outputs.PACKAGE }}
+          BETA_ZIP: ${{ steps.fetch_beta.outputs.download_url }}
         run: |
-          echo '{ "core" : "'"${wp_beta_zip}"'" , "plugins":[ "${{ steps.workflow.outputs.DIST }}/${{ steps.workflow.outputs.PACKAGE }}" ] }' > .wp-env.override.json
+          jq -n \
+            --arg core "$BETA_ZIP" \
+            --arg plugin "$DIST/$PACKAGE" \
+            '{ core: $core, plugins: [$plugin] }' > .wp-env.override.json
 
       - name: Install WordPress
         run: npx wp-env start --debug
