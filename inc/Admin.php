@@ -22,7 +22,7 @@ final class Admin {
 		/* Add Page to WordPress Admin Menu. */
 		\add_action( 'admin_menu', array( __CLASS__, 'page' ) );
 		/* Load Page Scripts & Styles. */
-		\add_action( 'load-toplevel_page_vodien', array( __CLASS__, 'assets' ) );
+		\add_action( 'admin_enqueue_scripts', array( __CLASS__, 'assets' ) );
 		/* Add Links to WordPress Plugins list item. */
 		\add_filter( 'plugin_action_links_wp-plugin-vodien/wp-plugin-vodien.php', array( __CLASS__, 'actions' ) );
 		/* Add inline style to hide subnav link */
@@ -132,7 +132,7 @@ final class Admin {
 			echo '<div id="wppv-app" class="wppv wppv_app"></div>' . PHP_EOL;
 			// Render bootstrap containers for modules that need portals
 			// Only enabled features get their containers rendered
-			$features_with_portals = array( 'performance' );
+			$features_with_portals = array( 'performance', 'coming-soon' );
 			foreach ( $features_with_portals as $feature ) {
 				if ( function_exists( 'NewfoldLabs\WP\Module\Features\isEnabled' ) &&
 					\NewfoldLabs\WP\Module\Features\isEnabled( $feature ) ) {

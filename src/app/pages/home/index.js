@@ -7,8 +7,29 @@ import WebContentSection from 'App/pages/home/webContentSection';
 import WebHostingSection from 'App/pages/home/webHostingSection';
 
 const Home = () => {
+	useEffect( () => {
+		// run when mounts
+		const comingSoonPortal =
+			document.getElementById( 'coming-soon-portal' );
+
+		if ( comingSoonPortal ) {
+			window.NFDPortalRegistry.registerPortal(
+				'coming-soon',
+				comingSoonPortal
+			);
+		}
+
+		// run when unmounts
+		return () => {
+			window.NFDPortalRegistry.unregisterPortal( 'coming-soon' );
+		};
+	}, [] );
+
 	return (
 	<Page title="Home" className={"wppv-app-home-page wppv-home"}>
+		<Container className="nfd-max-w-full nfd-p-8 nfd-shadow-none nfd-rounded-xl nfd-border nfd-border-[#D5D5D5]">
+			<div id="coming-soon-portal" />
+		</Container>
 		<Container className={'wppv-app-home-container'}>
 			<Container.Header className={'wppv-app-home-header'}>
 				<Title as="h2" className="nfd-flex nfd-items-center nfd-gap-2">

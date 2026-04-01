@@ -17,8 +17,9 @@ const topRoutePaths = [
 	'/home',
 	'/marketplace',
 	'/settings',
+	'/help'
 ];
-const utilityRoutePaths = [ '/help' ];
+const utilityRoutePaths = [ ];
 
 export const routes = [
 	{
