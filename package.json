@@ -80,12 +80,13 @@
         "srb": "npm run simulate-runner-build",
         "start": "NODE_ENV=develop wp-scripts start",
         "start:analyzer": "npm run start --webpack-bundle-analyzer",
-        "storye2e:all": "npm run test:playwright && npm run test:e2e",
-        "test:playwright": "playwright test",
-        "test:playwright:update-projects": "node .github/scripts/generate-playwright-projects.mjs",
-        "test:book:dev": "start-storybook -c ./storybook",
+        "storybook:dev": "start-storybook -c ./storybook",
         "storybook:build": "build-storybook -c ./storybook -o ./.docs",
         "test:e2e": "npx cypress run",
-        "test:unit": "wp-scripts test-unit-js"
+        "test:unit": "wp-scripts test-unit-js",
+        "test:e2e:all": "npm run test:cypress && npm run test:playwright",
+		"test:playwright": "npx playwright test",
+		"test:playwright:update-projects": "node .github/scripts/generate-playwright-projects.mjs",
+		"test:clean-module": "bash ./.github/scripts/test-clean-module"
     }
 }

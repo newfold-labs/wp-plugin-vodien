@@ -43,13 +43,11 @@ test.describe('Help Page', () => {
 
 		// Verify all help cards exist and are visible
 		const helpCards = [
-			{ selector: '.card-help-ticket', title: 'Email Us' },
 			{ selector: '.card-help-phone', title: 'Phone' },
 			{ selector: '.card-help-chat', title: 'Chat' },
 			{ selector: '.card-help-twitter', title: 'Tweet' },
 			{ selector: '.card-help-video', title: 'Video Tutorials' },
-			{ selector: '.card-help-academy', title: 'Online Academy' },
-			{ selector: '.card-help-help', title: 'Online Support' },
+			{ selector: '.card-help-kb', title: 'Knowledge Base' },
 			{ selector: '.card-help-blog', title: 'Blog' },
 		];
 

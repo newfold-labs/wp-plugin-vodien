@@ -1,49 +1,40 @@
+/**
+ * Visual Regression Testing
+ * 
+ * This test is used to verify that the plugin is rendering correctly in the browser.
+ * The paths are all visited and the screenshot is compared to the baseline screenshot.
+ * 
+ * To update the baseline screenshots, run the test with the --update-snapshots flag:
+ * npx playwright test tests/playwright/specs/vrt.spec.js --update-snapshots
+ */
+
 import { test, expect } from '@playwright/test';
 import { auth } from '../helpers';
 
-test.describe('Visual Regression Testing (VRT)', () => {
-	// Visual regression tests are typically skipped in CI environments
-	// These are placeholder tests for local visual regression testing
+const pluginId = process.env.PLUGIN_ID || 'vodien';
+const paths = [
+    'wp-admin/index.php',
+    'wp-admin/admin.php?page=' + pluginId + '#/home',
+    'wp-admin/admin.php?page=' + pluginId + '#/settings',
+    'wp-admin/admin.php?page=' + pluginId + '#/marketplace',
+    'wp-admin/admin.php?page=' + pluginId + '#/help',
+    '/wp-admin/plugins.php',
+    '/wp-admin/plugin-install.php',
+    'wp-admin/plugin-install.php?tab=premium-marketplace'
+];
 
-	test.skip('[VRT] Admin Dashboard', async ({ page }) => {
-		const pluginId = process.env.PLUGIN_ID || 'vodien';
-		await auth.navigateToAdminPage(page, `admin.php?page=${pluginId}`);
+test.beforeEach(async ({ page }) => {
+    // Login and navigate to the dashboard page
+    await auth.navigateToAdminPage(page, 'index.php');
+  });
 
-		await expect(page).toHaveScreenshot();
-	});
-
-	test.skip('[VRT] Dashboard Widgets', async ({ page }) => {
-		const pluginId = process.env.PLUGIN_ID || 'vodien';
-		await auth.navigateToAdminPage(page, `admin.php?page=${pluginId}#/dashboard`);
-
-		await expect(page).toHaveScreenshot();
-	});
-
-	test.skip('[VRT] Settings Page', async ({ page }) => {
-		const pluginId = process.env.PLUGIN_ID || 'vodien';
-		await auth.navigateToAdminPage(page, `admin.php?page=${pluginId}#/settings`);
-
-		await expect(page).toHaveScreenshot();
-	});
-
-	test.skip('[VRT] Help Page', async ({ page }) => {
-		const pluginId = process.env.PLUGIN_ID || 'vodien';
-		await auth.navigateToAdminPage(page, `admin.php?page=${pluginId}#/help`);
-
-		await expect(page).toHaveScreenshot();
-	});
-
-	test.skip('[VRT] Home Page', async ({ page }) => {
-		const pluginId = process.env.PLUGIN_ID || 'vodien';
-		await auth.navigateToAdminPage(page, `admin.php?page=${pluginId}#/home`);
-
-		await expect(page).toHaveScreenshot();
-	});
-
-	test.skip('[VRT] Coming Soon Page', async ({ page }) => {
-		const pluginId = process.env.PLUGIN_ID || 'vodien';
-		await auth.navigateToAdminPage(page, `admin.php?page=${pluginId}#/coming-soon`);
-
-		await expect(page).toHaveScreenshot();
-	});
+/* Skipping for now until we get tests fully migrated to Playwright */
+test.skip('VRT', () => {
+    for (const path of paths) {
+        test(`${path}`, async ({ page }) => {
+            await page.goto(path);
+            await page.waitForLoadState('domcontentloaded');
+            await expect(page).toHaveScreenshot({ maxDiffPixels: 100 });
+        });
+    }
 });

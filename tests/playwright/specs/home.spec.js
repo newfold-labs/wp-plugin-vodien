@@ -7,7 +7,7 @@ test.describe('Home Page', () => {
 		await auth.navigateToAdminPage(page, 'admin.php?page=vodien#/home');
 	});
 
-	test('Is Accessible', async ({ page }) => {
+	test('Is Accessible', { timeout: 10000 }, async ({ page }) => {
 		// Wait for the home page to load - check for the main app container and home page class
 		await page.waitForSelector('#wppv-app-rendered', { timeout: 10000 });
 		await page.waitForSelector('.wppv-page-home', { timeout: 10000 });
@@ -52,7 +52,7 @@ test.describe('Home Page', () => {
 		// Manage Vodien Account link
 		const manageAccountLink = hosting.locator(
 			'a.nfd-button.nfd-button--secondary',
-			{ hasText: 'Manage Account' }
+			{ hasText: 'Manage Vodien Account' }
 		);
 
 		await expect(manageAccountLink).toBeVisible();
