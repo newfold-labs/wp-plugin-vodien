@@ -80,7 +80,7 @@ const AppBody = ( props ) => {
 				<div className="wppv-app-body-inner">
 					<ErrorBoundary FallbackComponent={ <ErrorCard /> }>
 						{ hasError && <ErrorCard error={ hasError } /> }
-						<SiteInfoBar />
+						{/* <SiteInfoBar /> */}
 						{ ( true === booted && <AppRoutes /> ) ||
 							( ! hasError && <Spinner /> ) }
 					</ErrorBoundary>

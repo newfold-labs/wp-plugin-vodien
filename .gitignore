@@ -22,3 +22,10 @@ cypress.env.json
 *.log
 *.sql
 *.zip
+
+# Playwright
+/tests/playwright/test-results/
+/tests/playwright/playwright-report/
+/tests/playwright/blob-report/
+/tests/playwright/.cache/
+/tests/playwright/.auth/
