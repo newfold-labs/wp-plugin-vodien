@@ -5,31 +5,17 @@ import ComingSoon from 'App/pages/settings/comingSoon';
 import SettingsSection from 'App/pages/home/settingsSection';
 import WebContentSection from 'App/pages/home/webContentSection';
 import WebHostingSection from 'App/pages/home/webHostingSection';
+import ComingSoonSection from "./comingSoonSection";
+import NextSteps from "./nextSteps";
+import StoreDetails from "./storeDetails";
 
 const Home = () => {
-	useEffect( () => {
-		// run when mounts
-		const comingSoonPortal =
-			document.getElementById( 'coming-soon-portal' );
-
-		if ( comingSoonPortal ) {
-			window.NFDPortalRegistry.registerPortal(
-				'coming-soon',
-				comingSoonPortal
-			);
-		}
-
-		// run when unmounts
-		return () => {
-			window.NFDPortalRegistry.unregisterPortal( 'coming-soon' );
-		};
-	}, [] );
 
 	return (
 	<Page title="Home" className={"wppv-app-home-page wppv-home"}>
-		<Container className="nfd-max-w-full nfd-p-8 nfd-shadow-none nfd-rounded-xl nfd-border nfd-border-[#D5D5D5]">
-			<div id="coming-soon-portal" />
-		</Container>
+		<StoreDetails />
+		<ComingSoonSection />
+		<NextSteps />
 		<Container className={'wppv-app-home-container'}>
 			<Container.Header className={'wppv-app-home-header'}>
 				<Title as="h2" className="nfd-flex nfd-items-center nfd-gap-2">
