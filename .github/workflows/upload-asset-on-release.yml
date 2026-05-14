@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write # Required to clone the private repo and upload the release zip via GITHUB_TOKEN.
+    timeout-minutes: 45
 
     steps:
 
