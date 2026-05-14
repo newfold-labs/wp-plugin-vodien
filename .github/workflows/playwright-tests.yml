@@ -21,12 +21,13 @@ jobs:
   build:
     name: Build Plugin
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # Required to clone the private repo.
+      actions: write # Required to upload the built plugin artifact for the test job.
     timeout-minutes: 30
     outputs:
       dist: ${{ steps.workflow.outputs.DIST }}
       package: ${{ steps.workflow.outputs.PACKAGE }}
-    permissions:
-      contents: read
 
     steps:
       - name: Checkout
@@ -109,10 +110,11 @@ jobs:
   test:
     name: Run Playwright Tests
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # Required to clone the private repo.
+      actions: write # Required to download the build artifact and upload Playwright test results.
     timeout-minutes: 60
     needs: build
-    permissions:
-      contents: read
 
     steps:
       - name: Checkout
