@@ -20,7 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read      # Required to clone the private repo.
-      actions: write      # Required to upload Playwright test result artifacts.
     timeout-minutes: 45
 
     steps:
