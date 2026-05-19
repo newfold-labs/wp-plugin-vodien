@@ -18,9 +18,9 @@ jobs:
   test:
     name: Run Playwright Beta Only Tests
     runs-on: ubuntu-latest
-    timeout-minutes: 45
     permissions:
-      contents: read
+      contents: read      # Required to clone the private repo.
+    timeout-minutes: 45
 
     steps:
       - name: Checkout
