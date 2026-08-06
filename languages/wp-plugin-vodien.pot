@@ -384,6 +384,22 @@ msgid "Add site services, themes or plugins from the marketplace."
 msgstr ""
 
 #: build/1.0.2/index.js:1
+msgid "Congrats, your store is live!"
+msgstr ""
+
+#: build/1.0.2/index.js:1
+msgid "Congrats, your website is live!"
+msgstr ""
+
+#: build/1.0.2/index.js:1
+msgid "Store Details"
+msgstr ""
+
+#: build/1.0.2/index.js:1
+msgid "Add Store Details"
+msgstr ""
+
+#: build/1.0.2/index.js:1
 msgid "Site Status"
 msgstr ""
 
