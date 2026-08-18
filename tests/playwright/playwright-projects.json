@@ -1,0 +1,7 @@
+[
+  {
+    "name": "newfold-labs/wp-plugin-vodien",
+    "testDir": "./tests/playwright/specs",
+    "testMatch": "**/*.spec.js"
+  }
+]
