@@ -295,6 +295,32 @@ async function clearCapabilities() {
 }
 
 /**
+ * Clear installer work that could leak into later Playwright projects.
+ *
+ * The installer cron remains enabled. On its next run it will observe an empty
+ * queue, mark the task manager complete, and unschedule itself.
+ */
+async function clearInstallerQueues() {
+  const options = [
+    'nfd_module_installer_plugin_install_queue',
+    'nfd_module_installer_plugin_activation_queue',
+    'nfd_module_installer_plugins_init_status',
+  ];
+  const encodedOptions = Buffer.from(
+    JSON.stringify(options),
+    'utf8',
+  ).toString('base64');
+
+  // --skip-plugins/--skip-themes: only need the options API. Loading the full
+  // plugin stack can fatal (e.g. a half-installed companion plugin) and then this
+  // cleanup itself cannot run — exactly when it is most needed.
+  return await wordpress.wpCli(
+    `eval '$options = json_decode( base64_decode( "${encodedOptions}" ), true ); foreach ( $options as $option ) { delete_option( $option ); } $remaining = array_values( array_filter( $options, static function ( $option ) { return false !== get_option( $option, false ); } ) ); if ( $remaining ) { WP_CLI::error( "Failed to clear installer options: " . implode( ", ", $remaining ) ); }' --skip-plugins --skip-themes`,
+    { failOnNonZeroExit: true },
+  );
+}
+
+/**
  * Log the current capabilities option from the database
  * 
  * @returns {Promise<Object>} The current capabilities object
@@ -498,6 +524,7 @@ export default {
   // Capabilities
   setCapability,
   clearCapabilities,
+  clearInstallerQueues,
   logCapabilities,
   
   // Coming Soon
