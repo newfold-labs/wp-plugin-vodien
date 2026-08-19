@@ -55,6 +55,7 @@ projects = projects.map((p) => {
 // Set environment variable for plugin root
 process.env.PLUGIN_DIR = __dirname;
 process.env.PLUGIN_ID = 'vodien';
+process.env.APP_ID = 'wppv';
 process.env.WP_ADMIN_USERNAME = process.env.WP_ADMIN_USERNAME || 'admin';
 process.env.WP_ADMIN_PASSWORD = process.env.WP_ADMIN_PASSWORD || 'password';
 process.env.WP_VERSION = process.env.WP_VERSION || wpVersion;
