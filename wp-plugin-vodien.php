@@ -15,7 +15,7 @@
  * Version:           1.0.2
  * Requires at least: 6.6
  * Requires PHP:      7.4
- * Tested up to:      7.0.4
+ * Tested up to:      7.1
  * Author:            Vodien
  * Author URI:        https://www.vodien.com
  * Text Domain:       wp-plugin-vodien

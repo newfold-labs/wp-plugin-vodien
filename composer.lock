@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36cc9563d1a48bf42a65ac4b7def88d9",
+    "content-hash": "28f9160f0e5e075e188fdfbefb4adb6b",
     "packages": [
         {
             "name": "colinmollenhour/credis",
@@ -5670,5 +5670,5 @@
     "platform-overrides": {
         "php": "7.3.0"
     },
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }

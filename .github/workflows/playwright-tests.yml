@@ -186,6 +186,9 @@ jobs:
           npx wp-env run cli wp core version
           echo "WordPress is ready!"
 
+      - name: Update WordPress database
+        run: npx wp-env run cli wp core update-db
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
 

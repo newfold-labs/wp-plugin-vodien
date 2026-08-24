@@ -27,6 +27,27 @@ async function globalSetup(config) {
   utils.fancyLog('Running global setup...', 100, 'gray', '');
   
   try {
+    // Run DB upgrade after core version bumps (e.g. 7.0 → 7.1) so admin is not blocked.
+    // https://developer.wordpress.org/cli/commands/core/update-db/
+    const dbUpdateResult = await wordpress.wpCli('core update-db', {
+      failOnNonZeroExit: false,
+    });
+    if (wordpress.isWpCliFailure(dbUpdateResult)) {
+      utils.fancyLog(
+        `⚠ Database update step: ${wordpress.formatWpCliResult(dbUpdateResult)}`,
+        200,
+        'yellow',
+        '',
+      );
+    } else {
+      utils.fancyLog(
+        `✔ Database updated (${wordpress.formatWpCliResult(dbUpdateResult)})`,
+        200,
+        'green',
+        '',
+      );
+    }
+
     // Set permalink structure and flush rewrite rules in one step.
     // `rewrite structure` updates permalink_structure and flushes rules; `--hard` also
     // updates .htaccess (same intent as the old option update + rewrite flush --hard).
