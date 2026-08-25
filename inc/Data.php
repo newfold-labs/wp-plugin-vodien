@@ -19,7 +19,7 @@ final class Data {
 	 * @var string
 	 */
 	private static $ai_sitegen_brand = 'networksolutions';
-	
+
 	/**
 	 * Data loaded onto window.NewfoldRuntime
 	 *
@@ -28,13 +28,13 @@ final class Data {
 	public static function runtime() {
 		global $vodien_module_container;
 		$runtime = array(
-			'plugin' => array(
+			'plugin'   => array(
 				'url'     => VODIEN_BUILD_URL,
 				'version' => VODIEN_PLUGIN_VERSION,
 				'assets'  => VODIEN_PLUGIN_URL . 'assets/',
 				'brand'   => $vodien_module_container->plugin()->brand,
 			),
-			'siteType'           => self::get_site_type(),
+			'siteType' => self::get_site_type(),
 		);
 		return $runtime;
 	}
