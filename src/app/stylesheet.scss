@@ -396,3 +396,11 @@ body.toplevel_page_vodien {
         margin-bottom: 0;
     }
 }
+
+header.wppv-app-topbar nav a.wppv-app-navitem {
+    text-decoration: none;
+}
+
+.nfd-root .nfd-notifications{
+    z-index: 9991 !important;
+}

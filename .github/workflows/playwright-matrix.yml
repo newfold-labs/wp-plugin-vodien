@@ -33,9 +33,10 @@ jobs:
           - '8.3'
           - '8.4'
         wpVersion:
-          - '6.7'
           - '6.8'
           - '6.9'
+          - '7.0'
+          - '7.1'
 
     steps:
       - name: Checkout
@@ -129,6 +130,9 @@ jobs:
           echo "Verifying WordPress is ready..."
           npx wp-env run cli wp core version
           echo "WordPress is ready!"
+
+      - name: Update WordPress database
+        run: npx wp-env run cli wp core update-db
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium

@@ -12,10 +12,10 @@
  * Plugin URI:        https://www.vodien.com
  * Update URI:        https://github.com/newfold-labs/wp-plugin-vodien/
  * Description:       WordPress plugin that integrates a WordPress site with the Vodien control panel, including performance, security, and update features.
- * Version:           1.0.2
+ * Version:           1.1.0
  * Requires at least: 6.6
  * Requires PHP:      7.4
- * Tested up to:      6.9.4
+ * Tested up to:      7.1
  * Author:            Vodien
  * Author URI:        https://www.vodien.com
  * Text Domain:       wp-plugin-vodien
@@ -32,10 +32,11 @@ if ( defined( 'VODIEN_PLUGIN_VERSION' ) ) {
 }
 
 // Define constants
-define( 'VODIEN_PLUGIN_VERSION', '1.0.2' );
+define( 'VODIEN_PLUGIN_VERSION', '1.1.0' );
 define( 'VODIEN_PLUGIN_FILE', __FILE__ );
 define( 'VODIEN_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'VODIEN_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+
 if ( ! defined( 'NFD_HIIVE_URL' ) ) {
 	define( 'NFD_HIIVE_URL', 'https://hiive.cloud/api' );
 }
