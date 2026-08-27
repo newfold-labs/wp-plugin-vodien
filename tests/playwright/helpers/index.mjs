@@ -11,7 +11,7 @@ import auth from './auth.mjs';
 // Core WordPress functionality
 import wordpress from './wordpress.mjs';
 
-// Newfold/Bluehost plugin-specific helpers
+// Newfold/Vodien plugin-specific helpers
 import newfold from './newfold.mjs';
 
 // Accessibility testing helpers

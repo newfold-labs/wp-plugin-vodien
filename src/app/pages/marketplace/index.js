@@ -48,7 +48,7 @@ const MarketplacePage = () => {
         <Page className={"wppv-app-marketplace-page"}>
 			<Container className={'wppv-app-marketplace-container'}>
 				<Container.Header className={'wppv-app-marketplace-header'}>
-					<Title as="h2" className="nfd-flex nfd-items-center nfd-gap-2">
+					<Title as="h1" className="nfd-flex nfd-items-center nfd-gap-2">
 						<ShoppingBagIcon className="nfd-w-8 nfd-h-8" />
 						{moduleConstants.text.title}
 					</Title>
