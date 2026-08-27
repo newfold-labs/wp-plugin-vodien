@@ -77,7 +77,7 @@ msgid "Preview the coming soon landing page"
 msgstr ""
 
 #: inc/Admin.php:60
-#: inc/Admin.php:204
+#: inc/Admin.php:213
 #: build/1.0.2/index.js:1
 msgid "Home"
 msgstr ""
@@ -88,7 +88,7 @@ msgid "Marketplace"
 msgstr ""
 
 #: inc/Admin.php:62
-#: inc/Admin.php:205
+#: inc/Admin.php:214
 #: build/1.0.2/index.js:1
 msgid "Settings"
 msgstr ""
@@ -98,20 +98,20 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: inc/Admin.php:150
+#: inc/Admin.php:151
 msgid "Please update to a newer WordPress version."
 msgstr ""
 
-#: inc/Admin.php:151
+#: inc/Admin.php:152
 msgid "There are new WordPress components which this plugin requires in order to render the interface."
 msgstr ""
 
-#: inc/Admin.php:152
+#: inc/Admin.php:153
 msgid "Please update now"
 msgstr ""
 
 #. translators: %1$s is the WordPress URL, %2$s is the Vodien URL.
-#: inc/Admin.php:223
+#: inc/Admin.php:232
 #, php-format
 msgid "Thank you for creating with %1$s and %2$s"
 msgstr ""
@@ -381,6 +381,22 @@ msgstr ""
 
 #: build/1.0.2/index.js:1
 msgid "Add site services, themes or plugins from the marketplace."
+msgstr ""
+
+#: build/1.0.2/index.js:1
+msgid "Congrats, your store is live!"
+msgstr ""
+
+#: build/1.0.2/index.js:1
+msgid "Congrats, your website is live!"
+msgstr ""
+
+#: build/1.0.2/index.js:1
+msgid "Store Details"
+msgstr ""
+
+#: build/1.0.2/index.js:1
+msgid "Add Store Details"
 msgstr ""
 
 #: build/1.0.2/index.js:1
