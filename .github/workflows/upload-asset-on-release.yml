@@ -17,6 +17,9 @@ jobs:
   build:
     name: On Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
     steps:
 
       - name: Checkout
@@ -54,10 +57,11 @@ jobs:
           echo "DIST=${PWD}/dist" >> $GITHUB_OUTPUT
           echo "PACKAGE=${REPO##*/}" >> $GITHUB_OUTPUT
 
-      - name: Set Node.js 20.x
+      - name: Set Node.js 24.x
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
-          node-version: 20.x
+          node-version: 24.15.0
+          cache: 'npm'
 
       - name: Get npm cache directory
         id: npm-cache
