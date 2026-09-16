@@ -108,7 +108,7 @@ export const SideNavMenuItem = ({ label, name, icon: Icon = null, path, action, 
 			<NavLink
 				onClick={(action && action instanceof Function) ? action : null}
 				to={path}
-				className={`wppv-app-navitem wppv-app-navitem-${label} nfd-flex nfd-items-center nfd-gap-3 nfd-px-3 nfd-py-2 nfd-rounded-md nfd-text-sm nfd-font-medium nfd-text-title leading-none hover:nfd-bg-slate-50 [&.active]:nfd-bg-[#E2E8F0]`}
+				className={`wppv-app-navitem wppv-app-navitem-${label} nfd-flex nfd-items-center nfd-gap-3 nfd-px-3 nfd-py-2 nfd-rounded-md nfd-text-sm nfd-font-medium nfd-text-title leading-none hover:nfd-bg-slate-50 [&.active]:nfd-bg-[#FEF2F2]`}
 			>
 				{Icon &&
 					<Icon className="nfd-flex-shrink-0 nfd--ml-1 nfd-h-6 nfd-w-6" />
@@ -139,7 +139,7 @@ export const SideNavMenuSubItem = ({ label, name, path, action }) => {
 			<NavLink
 				onClick={(action && action instanceof Function) ? action : null}
 				to={path} 
-				className={`wppv-app-subnavitem wppv-app-subnavitem-${label} nfd-flex nfd-items-center nfd-gap-3 nfd-px-3 nfd-py-2 nfd-rounded-md nfd-text-sm nfd-font-medium nfd-text-body leading-none hover:nfd-bg-slate-50 [&.active]:nfd-bg-[#E2E8F0] [&.active]:nfd-text-title`}
+				className={`wppv-app-subnavitem wppv-app-subnavitem-${label} nfd-flex nfd-items-center nfd-gap-3 nfd-px-3 nfd-py-2 nfd-rounded-md nfd-text-sm nfd-font-medium nfd-text-body leading-none hover:nfd-bg-slate-50 [&.active]:nfd-bg-[#FEF2F2] [&.active]:nfd-text-title`}
 			>
 				{label}
 			</NavLink>
@@ -250,7 +250,7 @@ export const TopBarNav = () => {
 											key={page.name}
 											onClick={(page.action && page.action instanceof Function) ? page.action : null}
 											to={page.name}
-											className={`wppv-app-navitem wppv-app-navitem-${page.title} nfd-flex nfd-items-center nfd-gap-2 nfd-px-3 nfd-py-2 nfd-rounded-md nfd-text-sm nfd-font-medium nfd-text-title leading-none hover:nfd-bg-slate-50 [&.active]:nfd-bg-[#E2E8F0] nfd-transition-colors`}
+											className={`wppv-app-navitem wppv-app-navitem-${page.title} nfd-flex nfd-items-center nfd-gap-2 nfd-px-3 nfd-py-2 nfd-rounded-md nfd-text-sm nfd-font-medium nfd-text-title leading-none hover:nfd-bg-slate-50 [&.active]:nfd-bg-[#FEF2F2] nfd-transition-colors`}
 										>
 											{page.Icon && <page.Icon className="nfd-w-5 nfd-h-5" />}
 											{page.title}
@@ -262,7 +262,7 @@ export const TopBarNav = () => {
 									key={page.name}
 									onClick={(page.action && page.action instanceof Function) ? page.action : null}
 									to={page.name}
-									className={`wppv-app-navitem wppv-app-navitem-${page.title} nfd-flex nfd-items-center nfd-gap-2 nfd-px-3 nfd-py-2 nfd-rounded-md nfd-text-sm nfd-font-medium nfd-text-title leading-none hover:nfd-bg-slate-50 [&.active]:nfd-bg-[#E2E8F0] nfd-transition-colors`}
+									className={`wppv-app-navitem wppv-app-navitem-${page.title} nfd-flex nfd-items-center nfd-gap-2 nfd-px-3 nfd-py-2 nfd-rounded-md nfd-text-sm nfd-font-medium nfd-text-title leading-none hover:nfd-bg-slate-50 [&.active]:nfd-bg-[#FEF2F2] nfd-transition-colors`}
 								>
 									{page.Icon && <page.Icon className="nfd-w-5 nfd-h-5" />}
 									{page.title}

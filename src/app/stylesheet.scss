@@ -27,16 +27,16 @@
     --color-canvas: #FDFDFD;
 
     // NFD Module Overrides (wp-module-performance, etc.)
-    --nfd-color-primary: #DC2626;
-    --nfd-color-primary-dark: #991B1B;
-    --nfd-color-primary-light: #FEE2E2;
-    --nfd-color-primary-lighter: #FEF2F2;
-    --nfd-color-secondary: #1F2937;
-    --nfd-color-secondary-dark: #111827;
-    --nfd-color-secondary-light: #F3F4F6;
-    --nfd-color-secondary-lighter: #F9FAFB;
-    --nfd-color-title: #1F2937;
-    --nfd-color-body: #374151;
+    --nfd-color-primary: #DC2626 !important;
+    --nfd-color-primary-dark: #991B1B !important;
+    --nfd-color-primary-light: #FEE2E2 !important;
+    --nfd-color-primary-lighter: #FEF2F2 !important;
+    --nfd-color-secondary: #1F2937 !important;
+    --nfd-color-secondary-dark: #111827 !important;
+    --nfd-color-secondary-light: #F3F4F6 !important;
+    --nfd-color-secondary-lighter: #F9FAFB !important;
+    --nfd-color-title: #1F2937 !important;
+    --nfd-color-body: #374151 !important;
 }
 
 // Vodien Brand Override - Higher specificity to override module styles
