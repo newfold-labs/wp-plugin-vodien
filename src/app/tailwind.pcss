@@ -8,7 +8,7 @@
 
 /* Configs */
 @layer base {
-	.nfd-root {
+	body .nfd-root {
 		@apply
 		nfd-text-body;
 
@@ -32,7 +32,7 @@
 
 /* Titles */
 @layer components {
-	.nfd-root {
+	body .nfd-root {
 		.nfd-title {
 			@apply
 			nfd-text-title
@@ -42,12 +42,13 @@
 
 /* Links */
 @layer components {
-	.nfd-root {
+	body .nfd-root {
 		.nfd-link {
 			@apply
 			nfd-text-[#DC2626]
 
 			hover:nfd-text-[#991B1B]
+			focus:nfd-text-[#991B1B]
 			focus:nfd-ring-[#DC2626]
 			visited:nfd-text-[#991B1B]
 			visited:hover:nfd-text-[#991B1B];
@@ -65,7 +66,7 @@
 
 /* Buttons */
 @layer components {
-	.nfd-root {
+	body .nfd-root {
 		.nfd-button {
 			@apply
 			nfd-px-4
@@ -116,8 +117,11 @@
 }
 
 /* Toggle / Toggle Field */
+/* `body` prefix keeps these ahead of wp-module-performance, which restyles
+   `.nfd-root .nfd-toggle--checked` at the same specificity and is enqueued on
+   every plugin screen, not just Performance. */
 @layer components {
-	.nfd-root {
+	body .nfd-root {
 		.nfd-toggle {
 			@apply
 			nfd-bg-[#CDD0D6]
@@ -149,7 +153,7 @@
 
 /* Checkbox */
 @layer components {
-	.nfd-root {
+	body .nfd-root {
 		.nfd-checkbox {
 			.nfd-checkbox__input {
 				@apply
@@ -170,7 +174,7 @@
 
 /* Radio Input */
 @layer components {
-	.nfd-root {
+	body .nfd-root {
 		.nfd-radio-group {
 			.nfd-radio__description {
 				@apply
@@ -198,7 +202,7 @@
 
 /* Select Field */
 @layer components {
-	.nfd-root {
+	body .nfd-root {
 		.nfd-select__button {
 			@apply
 			focus:nfd-ring-[#DC2626]
@@ -243,7 +247,7 @@
 
 /* Notifications */
 @layer components {
-	.nfd-root {
+	body .nfd-root {
 
 		.nfd-notifications {
 			z-index: 9991;
@@ -257,7 +261,7 @@
 
 /* Modal */
 @layer components {
-	.nfd-root {
+	body .nfd-root {
 		/* mobile menu modal */
 		.wppv-app-sidenav-mobile {
             .nfd-modal__close {
@@ -283,7 +287,7 @@
 
 /* Text Input Field */
 @layer components {
-	.nfd-root {
+	body .nfd-root {
 		.nfd-text-input {
 			@apply
 			focus:nfd-ring-[#DC2626]
